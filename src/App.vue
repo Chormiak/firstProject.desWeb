@@ -3,15 +3,14 @@
 
   const numbers = reactive({ true: 0, false: 0 });
 
-  function calculate(boolean, local) {
-    return numbers[boolean] += (local) ? 1 : -1;
+  function calculate(boolean, operation) {
+    return numbers[boolean] += (operation) ? 1 : -1;
   }
   const sum = computed(() => numbers.true + numbers.false);
 </script>
 
 <template>
   <h1>Calculator</h1>
-  
   <div v-for="boolean of [true, false]">
     <p>Valor: {{ numbers[boolean] }}</p>
     <button @click="calculate(boolean, true)">Incrementar</button>
