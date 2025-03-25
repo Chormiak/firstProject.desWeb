@@ -4,7 +4,9 @@
   const numbers = reactive({ true: 0, false: 0 });
 
   function calculate(boolean, operation) {
-    return numbers[boolean] += (operation) ? 1 : -1;
+    if (numbers[boolean] - 1 >= 0 || operation) {
+      return numbers[boolean] = numbers[boolean] += (operation) ? 1 : -1;
+    }
   }
   const sum = computed(() => numbers.true + numbers.false);
 </script>
